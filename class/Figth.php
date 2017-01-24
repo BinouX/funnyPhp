@@ -176,15 +176,15 @@ start.play();
           $('.container').empty();
           if(dance){
               if($i%2 == 0){
-                $('.container').append('<img class="win1" src=\'../ressources/'+player1+'/dance1.png\' border=\'0\' /> <img class="win1" src=\'../ressources/'+player2+'/down.png\' border=\'0\' />');
+                $('.container').append('<img class="win1" src=\'../ressources/'+player1+'/dance1.png\' border=\'0\' /> <img class="win1 returnImg" src=\'../ressources/'+player2+'/down.png\' border=\'0\' />');
               }else{
-                $('.container').append('<img class="win1" src=\'../ressources/'+player1+'/dance2.png\' border=\'0\' /> <img class="win1" src=\'../ressources/'+player2+'/down.png\' border=\'0\' />');
+                $('.container').append('<img class="win1" src=\'../ressources/'+player1+'/dance2.png\' border=\'0\' /> <img class="win1 returnImg" src=\'../ressources/'+player2+'/down.png\' border=\'0\' />');
               }
           }else{
             if($i%2 == 0){
-              $('.container').append('<img class="win2" src=\'../ressources/'+player1+'/down.png\' border=\'0\' /> <img class="win2" src=\'../ressources/'+player2+'/dance1.png\' border=\'0\' /> ');
+              $('.container').append('<img class="win2" src=\'../ressources/'+player1+'/down.png\' border=\'0\' /> <img class="win2 returnImg" src=\'../ressources/'+player2+'/dance1.png\' border=\'0\' /> ');
             }else{
-              $('.container').append('<img class="win2" src=\'../ressources/'+player1+'/down.png\' border=\'0\' /> <img class="win2" src=\'../ressources/'+player2+'/dance2.png\' border=\'0\' />');
+              $('.container').append('<img class="win2" src=\'../ressources/'+player1+'/down.png\' border=\'0\' /> <img class="win2 returnImg" src=\'../ressources/'+player2+'/dance2.png\' border=\'0\' />');
             }
           }
       }
