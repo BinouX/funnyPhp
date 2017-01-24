@@ -3,3 +3,10 @@
    -webkit-transform: scale(-1,1); /* Safari */
    transform: scale(-1,1); /* Standard syntax */
 }
+
+.c:hover{
+  -ms-transform: scale(2,2); /* IE 9 */
+   -webkit-transform: scale(2,2); /* Safari */
+   transform: scale(2,2); /* Standard syntax */
+   border: solid 2px red;
+}
