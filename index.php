@@ -18,53 +18,53 @@
   <table>
     <tr>
       <td>
-        <img id="anna" class="c1" src='./ressources/anna/name.png'/>
+        <img id="anna" class="c" src='./ressources/anna/name.png'/>
       </td>
       <td>
-        <img id="brian" class="c2" src='./ressources/brian/name.png'/>
+        <img id="brian" class="c" src='./ressources/brian/name.png'/>
       </td>
       <td>
-        <img id="crow" class="c3" src='./ressources/crow/name.png'/>
+        <img id="crow" class="c" src='./ressources/crow/name.png'/>
       </td>
       <td>
-        <img id="eddy" class="c4" src='./ressources/eddy/name.png'/>
+        <img id="eddy" class="c" src='./ressources/eddy/name.png'/>
       </td>
       <td>
-        <img id="gunjack" class="c5" src='./ressources/gunjack/name.png'/>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img id="heihachi" class="c6" src='./ressources/heihachi/name.png'/>
-      </td>
-      <td>
-        <img id="hwoarang" class="c7" src='./ressources/hwoarang/name.png'/>
-      </td>
-      <td>
-        <img id="jin" class="c8" src='./ressources/jin/name.png'/>
-      </td>
-      <td>
-        <img id="king" class="c9" src='./ressources/king/name.png'/>
-      </td>
-      <td>
-        <img id="kuma" class="c10" src='./ressources/kuma/name.png'/>
+        <img id="gunjack" class="c" src='./ressources/gunjack/name.png'/>
       </td>
     </tr>
     <tr>
       <td>
-        <img id="law" class="c11" src='./ressources/law/name.png'/>
+        <img id="heihachi" class="c" src='./ressources/heihachi/name.png'/>
       </td>
       <td>
-        <img id="lei" class="c12" src='./ressources/lei/name.png'/>
+        <img id="hwoarang" class="c" src='./ressources/hwoarang/name.png'/>
       </td>
       <td>
-        <img id="mokujin" class="c13" src='./ressources/mokujin/name.png'/>
+        <img id="jin" class="c" src='./ressources/jin/name.png'/>
       </td>
       <td>
-        <img id="panda" class="c14" src='./ressources/panda/name.png'/>
+        <img id="king" class="c" src='./ressources/king/name.png'/>
       </td>
       <td>
-        <img id="yoshimitsu" class="c15" src='./ressources/yoshimitsu/name.png'/>
+        <img id="kuma" class="c" src='./ressources/kuma/name.png'/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img id="law" class="c" src='./ressources/law/name.png'/>
+      </td>
+      <td>
+        <img id="lei" class="c" src='./ressources/lei/name.png'/>
+      </td>
+      <td>
+        <img id="mokujin" class="c" src='./ressources/mokujin/name.png'/>
+      </td>
+      <td>
+        <img id="panda" class="c" src='./ressources/panda/name.png'/>
+      </td>
+      <td>
+        <img id="yoshimitsu" class="c" src='./ressources/yoshimitsu/name.png'/>
       </td>
     </tr>
   </table>
@@ -101,6 +101,9 @@
   });
 
   $( "html" ).mousemove(function(){
+    if(select.ended){
+      select.play();
+    }
     if(player1 == true && player2==true){
       window.location.href = "./class/Figth.php?player1="+perso1+"&player2="+perso2;
     }

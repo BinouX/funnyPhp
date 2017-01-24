@@ -151,7 +151,7 @@ var $tailleMax = javascript_array.length;
 var punch = new Audio('img/PUNCH.wav');
 var slap = new Audio('img/slap.wav');
 var start = new Audio('img/start.wav');
-var over = new Audio('img/over.wav');
+var over = new Audio('img/end.wav');
 var bell = new Audio('img/bell.wav');
 start.play();
   setInterval(function(){
