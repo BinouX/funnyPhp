@@ -4,9 +4,37 @@
    transform: scale(-1,1); /* Standard syntax */
 }
 
-.c:hover{
+.x{
   -ms-transform: scale(2,2); /* IE 9 */
    -webkit-transform: scale(2,2); /* Safari */
    transform: scale(2,2); /* Standard syntax */
-   border: solid 2px red;
+   border: solid 1px blue;
+   -webkit-border-top-left-radius: 30px;
+-webkit-border-bottom-right-radius: 30px;
+-moz-border-radius-topleft: 30px;
+-moz-border-radius-bottomright: 30px;
+border-top-left-radius: 30px;
+border-bottom-right-radius: 30px;
+}
+.x:hover{
+  -ms-transform: scale(3,3); /* IE 9 */
+   -webkit-transform: scale(3,3); /* Safari */
+   transform: scale(3,3); /* Standard syntax */
+   border: solid 1px red;
+   z-index: 1
+}
+.vstable{
+  margin-top: 2vh;
+  width : 20vw;
+  margin-left: 40vh;
+  margin-right: 40vw
+}
+
+
+.charselect{
+  margin-top: 5vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  height: 60vh;
+  width: 60vw;
 }
