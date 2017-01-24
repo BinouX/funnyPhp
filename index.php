@@ -96,16 +96,7 @@
 
   $( "html" ).mousemove(function(){
     if(player1 == true && player2==true){
-      window.location.href = "/combat/class/Figth.php"
+      window.location.href = "./class/Figth.php"
     }
   });
-  // $("img").mouseout(function(){
-  //   if(player1 == false){
-  //     $('.player1').empty();
-  //   }
-  //   if(player2 == false){
-  //     $('.player2').empty();
-  //   }
-  // })
-
 </script>
