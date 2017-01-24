@@ -1,5 +1,6 @@
 <html>
   <link rel="stylesheet" href="./style.css" type="text/css">
+  <link rel="stylesheet" href="./boot.css" type="text/css">
 <table>
 <tr>
   <td>
@@ -15,7 +16,7 @@
   </td>
   </tr>
 </table>
-  <table>
+  <table class="charselect">
     <tr>
       <td>
         <img id="anna" class="c" src='./ressources/anna/name.png'/>
