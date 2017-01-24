@@ -1,4 +1,5 @@
 <html>
+  <link rel="stylesheet" href="./style.css" type="text/css">
 <table>
 <tr>
   <td>
@@ -17,53 +18,53 @@
   <table>
     <tr>
       <td>
-        <img class="c1" src='characters/1.jpg'/>
+        <img id="anna" class="c1" src='./ressources/anna/name.png'/>
       </td>
       <td>
-        <img class="c2" src='characters/2.jpg'/>
+        <img id="brian" class="c2" src='./ressources/brian/name.png'/>
       </td>
       <td>
-        <img class="c3" src='characters/3.jpg'/>
+        <img id="crow" class="c3" src='./ressources/crow/name.png'/>
       </td>
       <td>
-        <img class="c4" src='characters/4.jpg'/>
+        <img id="eddy" class="c4" src='./ressources/eddy/name.png'/>
       </td>
       <td>
-        <img class="c5" src='characters/5.jpg'/>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img class="c6" src='characters/6.jpg'/>
-      </td>
-      <td>
-        <img class="c7" src='characters/7.jpg'/>
-      </td>
-      <td>
-        <img class="c8" src='characters/8.jpg'/>
-      </td>
-      <td>
-        <img class="c9" src='characters/9.jpg'/>
-      </td>
-      <td>
-        <img class="c10" src='characters/10.jpg'/>
+        <img id="gunjack" class="c5" src='./ressources/gunjack/name.png'/>
       </td>
     </tr>
     <tr>
       <td>
-        <img class="c11" src='characters/11.jpg'/>
+        <img id="heihachi" class="c6" src='./ressources/heihachi/name.png'/>
       </td>
       <td>
-        <img class="c12" src='characters/12.jpg'/>
+        <img id="hwoarang" class="c7" src='./ressources/hwoarang/name.png'/>
       </td>
       <td>
-        <img class="c13" src='characters/13.jpg'/>
+        <img id="jin" class="c8" src='./ressources/jin/name.png'/>
       </td>
       <td>
-        <img class="c14" src='characters/14.jpg'/>
+        <img id="king" class="c9" src='./ressources/king/name.png'/>
       </td>
       <td>
-        <img class="c15" src='characters/15.jpg'/>
+        <img id="kuma" class="c10" src='./ressources/kuma/name.png'/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img id="law" class="c11" src='./ressources/law/name.png'/>
+      </td>
+      <td>
+        <img id="lei" class="c12" src='./ressources/lei/name.png'/>
+      </td>
+      <td>
+        <img id="mokujin" class="c13" src='./ressources/mokujin/name.png'/>
+      </td>
+      <td>
+        <img id="panda" class="c14" src='./ressources/panda/name.png'/>
+      </td>
+      <td>
+        <img id="yoshimitsu" class="c15" src='./ressources/yoshimitsu/name.png'/>
       </td>
     </tr>
   </table>
@@ -75,6 +76,8 @@
   var chomp = new Audio('class/img/chomp.wav');
   var player1 = false;
   var player2 = false;
+  var perso1 = "";
+  var perso2 = "";
 
   select.play();
   select.volume=0.8;
@@ -84,19 +87,22 @@
         chomp.play();
         $('.player1').append($(this).get()[0]);
         player1=true;
+        perso1=$(this).clone().attr("id");
       });
     }else if(player2 == false && $('.player2 img').length == 0){
       $(this).on("click", function(){
         chomp.play();
-        $('.player2').append($(this)  .get()[0]);
+        $('.player2').append($(this).get()[0]);
         player2=true;
+        perso2=$(this).attr("id");
+        console.log(perso2);
       });
     }
   });
 
   $( "html" ).mousemove(function(){
     if(player1 == true && player2==true){
-      window.location.href = "./class/Figth.php"
+      window.location.href = "./class/Figth.php?player1="+perso1+"&player2="+perso2;
     }
   });
 </script>

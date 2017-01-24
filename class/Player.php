@@ -6,12 +6,16 @@
       private $_stuff;
       private $_life;
       private $_speed;
+      private $_position;
+      private $_maxLife;
 
-      public function __construct($name, $strength, $life, $speed){
+      public function __construct($name, $position){
         $this -> _name = $name;
-        $this -> _strength = $strength;
-        $this -> _life = $life;
-        $this-> _speed = $speed;
+        $this -> _strength = rand(10,20);
+        $this -> _maxLife = rand(150,300);
+        $this -> _life = $this -> _maxLife;
+        $this -> _speed = rand(1,10);
+        $this -> _position = $position;
       }
 
     public function getName()
@@ -69,10 +73,29 @@
     {
         return $this->_speed;
     }
-
     public function setSpeed($_speed)
     {
         $this->_speed = $_speed;
+
+        return $this;
+    }
+    public function getPosition()
+    {
+        return $this->_position;
+    }
+    public function setPosition($_position)
+    {
+        $this->_position = $_position;
+
+        return $this;
+    }
+    public function getMaxLife()
+    {
+        return $this->_maxLife;
+    }
+    public function setMaxLife($_maxLife)
+    {
+        $this->_maxLife = $_maxLife;
 
         return $this;
     }

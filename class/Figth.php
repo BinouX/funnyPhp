@@ -1,3 +1,4 @@
+  <link rel="stylesheet" href="../style.css" type="text/css">
 <?php
   require 'Player.php';
   require 'Hit.php';
@@ -28,8 +29,8 @@
 
     public function __construct(){
       $this->_winner = false;
-      $this->_Player1 = new Player('Jacky', rand(10,20), rand(150,300), rand(1,10));
-      $this->_Player2 = new Player('Michel', rand(10,20), rand(150,300), rand(1,10));
+      $this->_Player1 = new Player($_GET['player1'], 1);
+      $this->_Player2 = new Player($_GET['player2'], 2);
       $this->_Hit = new Hit();
       $this->_array = array();
       $this->punch($this->_Player1, $this->_Player2);
@@ -37,14 +38,13 @@
     }
 
     public function punch($player1, $player2){
-      $line = '';
-      $line.='<img src=\'img/bifflePlayer1.png\' border=\'0\' /></div> ';
-      $line.='<img src=\'img/bifflePlayer2.png\' border=\'0\' /></div> ';
-      $line.='<br>';
-      $line.='Go FIGHT!!!!!!!!!!!!!!!!!!!!!';
-      $line.='<br>';
+      for($ii=0; $ii <4 ; $ii++){
+        $line = '';
+        $line.='<img src=\'../ressources/'.$player1->getName().'/present.png\' border=\'0\' /></div> ';
+        $line.='<img class=\'returnImg\' src=\'../ressources/'.$player2->getName().'/present.png\' border=\'0\' /></div> ';
+        array_push($this->_array,$line);
+      }
 
-      array_push($this->_array,$line);
       while($this->_winner == false){
         $playerPunch = $this->whoTakePunch($player1, $player2);
 
@@ -66,45 +66,33 @@
     public function dead($player){
       $line = '';
       $this->setWinner(true);
-      if($player->getName() == 'Jacky'){
-        $line.='<img class="win1" src=\'img/bifflePlayer1.png\' border=\'0\' />';
-        $line.='<img class="win1" src=\'img/chute21.png\' border=\'0\' />' ;
-        $line.='<br>';
-        $line.=$player->getName().' is dead';
+      if($player->getName() == $this-> _Player1->getName()){
+        $line.='<img class="win1" src=\'../ressources/'.$this-> _Player1->getName().'/dance1.png\' border=\'0\' />';
+        $line.='<img class="win1 returnImg" src=\'../ressources/'.$this-> _Player2->getName().'/kick.png\' border=\'0\' />' ;
         array_push($this->_array,$line);
 
         $line = '';
-        $line.='<img class="win1" src=\'img/bifflePlayer1.png\' border=\'0\' />';
-        $line.='<img class="win1" src=\'img/chute22.png\' border=\'0\' />' ;
-        $line.='<br>';
-        $line.=$player->getName().' is dead';
+        $line.='<img class="win1" src=\'../ressources/'.$this-> _Player1->getName().'/dance1.png\' border=\'0\' />';
+        $line.='<img class="win1 returnImg" src=\'../ressources/'.$this-> _Player2->getName().'/fall.png\' border=\'0\' />' ;
         array_push($this->_array,$line);
-        $line = '';
 
-        $line.='<img class="win1" src=\'img/bifflePlayer1.png\' border=\'0\' />';
-        $line.='<img class="win1" src=\'img/diePlayer2.png\' border=\'0\' />' ;
-        $line.='<br>';
-        $line.=$player->getName().' is dead';
+        $line = '';
+        $line.='<img class="win1" src=\'../ressources/'.$this-> _Player1->getName().'/dance1.png\' border=\'0\' />';
+        $line.='<img class="win1 returnImg" src=\'../ressources/'.$this-> _Player2->getName().'/down.png\' border=\'0\' />' ;
         array_push($this->_array,$line);
       }else{
-        $line.='<img class="win2" src=\'img/chute11.png\' border=\'0\' />';
-        $line.='<img class="win2" src=\'img/bifflePlayer2.png\' border=\'0\' />';
-        $line.='<br>';
-        $line.=$player->getName().' is dead';
+        $line.='<img class="win2" src=\'../ressources/'.$this-> _Player1->getName().'/kick.png\' border=\'0\' />';
+        $line.='<img class="win2 returnImg" src=\'../ressources/'.$this-> _Player2->getName().'/dance1.png\' border=\'0\' />';
         array_push($this->_array,$line);
 
         $line = '';
-        $line.='<img class="win2" src=\'img/chute12.png\' border=\'0\' />';
-        $line.='<img class="win2" src=\'img/bifflePlayer2.png\' border=\'0\' />';
-        $line.='<br>';
-        $line.=$player->getName().' is dead';
+        $line.='<img class="win2" src=\'../ressources/'.$this-> _Player1->getName().'/fall.png\' border=\'0\' />';
+        $line.='<img class="win2 returnImg" src=\'../ressources/'.$this-> _Player2->getName().'/dance1.png\' border=\'0\' />';
         array_push($this->_array,$line);
 
         $line = '';
-        $line.='<img class="win2" src=\'img/diePlayer1.png\' border=\'0\' />';
-        $line.='<img class="win2" src=\'img/bifflePlayer2.png\' border=\'0\' />';
-        $line.='<br>';
-        $line.=$player->getName().' is dead';
+        $line.='<img class="win2" src=\'../ressources/'.$this-> _Player1->getName().'/down.png\' border=\'0\' />';
+        $line.='<img class="win2 returnImg" src=\'../ressources/'.$this-> _Player2->getName().'/dance1.png\' border=\'0\' />';
         array_push($this->_array,$line);
       }
     }
@@ -139,6 +127,8 @@
 
   $Figth = new Figth();
   $arrayFight = $Figth->getArray();
+  $player1JS = $_GET['player1'];
+  $player2JS = $_GET['player2'];
 ?>
 
 <div class="container">
@@ -151,6 +141,10 @@
   $php_array = $arrayFight;
   $js_array =json_encode($php_array);
   echo "var javascript_array = ". $js_array . ";\n";
+  $jsPlayer1_array =json_encode($player1JS);
+  $jsPlayer2_array =json_encode($player2JS);
+  echo "var player1 = ".$jsPlayer1_array.";\n";
+  echo "var player2 = ".$jsPlayer2_array.";\n";
 ?>
 var $i = 0;
 var $tailleMax = javascript_array.length;
@@ -158,11 +152,15 @@ var punch = new Audio('img/PUNCH.wav');
 var slap = new Audio('img/slap.wav');
 var start = new Audio('img/start.wav');
 var over = new Audio('img/over.wav');
-
+var bell = new Audio('img/bell.wav');
 start.play();
   setInterval(function(){
     if(start.ended){
-      if($i < $tailleMax){
+      if($i < 4){
+        bell.play();
+        $('.container').empty();
+        $('.container').append(javascript_array[$i]);
+      }else if($i < $tailleMax){
         $('.container').empty();
         $('.container').append(javascript_array[$i]);
         if($i%2 == 0){
@@ -178,15 +176,15 @@ start.play();
           $('.container').empty();
           if(dance){
               if($i%2 == 0){
-                $('.container').append('<img class="win1" src=\'img/win1.png\' border=\'0\' /> <img class="win1" src=\'img/diePlayer2.png\' border=\'0\' />');
+                $('.container').append('<img class="win1" src=\'../ressources/'+player1+'/dance1.png\' border=\'0\' /> <img class="win1" src=\'../ressources/'+player2+'/down.png\' border=\'0\' />');
               }else{
-                $('.container').append('<img class="win1" src=\'img/win2.png\' border=\'0\' /> <img class="win1" src=\'img/diePlayer2.png\' border=\'0\' />');
+                $('.container').append('<img class="win1" src=\'../ressources/'+player1+'/dance2.png\' border=\'0\' /> <img class="win1" src=\'../ressources/'+player2+'/down.png\' border=\'0\' />');
               }
           }else{
             if($i%2 == 0){
-              $('.container').append('<img class="win2" src=\'img/diePlayer1.png\' border=\'0\' /> <img class="win2" src=\'img/win1.png\' border=\'0\' /> ');
+              $('.container').append('<img class="win2" src=\'../ressources/'+player1+'/down.png\' border=\'0\' /> <img class="win2" src=\'../ressources/'+player2+'/dance1.png\' border=\'0\' /> ');
             }else{
-              $('.container').append('<img class="win2" src=\'img/diePlayer1.png\' border=\'0\' /> <img class="win2" src=\'img/win2.png\' border=\'0\' />');
+              $('.container').append('<img class="win2" src=\'../ressources/'+player1+'/down.png\' border=\'0\' /> <img class="win2" src=\'../ressources/'+player2+'/dance2.png\' border=\'0\' />');
             }
           }
       }
